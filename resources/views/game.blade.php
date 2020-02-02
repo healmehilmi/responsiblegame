@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Responsible game</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link href="css/game.css" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 </head>
-<body>
+<body onload="myFunction()">
+        <div id="loading"></div>
 @include('partials.navbar')
 
 <div class="main">
@@ -20,57 +22,67 @@
                 <div id="sidebar">
          
                                 <div id="editor">
-                                      <div id="css">
-                                          <form id="exam_form" method="POST" action="/check" class="form-horizontal" >
+                                      <div id="css" >
+                                            <form id="exam_form" method="POST" action="/check" class="form-horizontal" >
+                                                @csrf
                                            <div class="line-numbers">
                                                1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
                                               </div>
-                                             <div class="coding-1">
+                                              <div class="coding-1">
                                                
-                                                 <pre><</pre>
-                                             <input required pattern="a" type="text" class="check003" id="input001" size="15" style="height: 24px;width: 24px;" />
-                                                  <pre>></pre>
-                                              
-                                              <pre id="before">I am a main Heading 
-                                                    </pre>  
-                              
-                                                    <pre><</pre>
-                                                    <pre>/</pre>
-                                                    <input required pattern="" type="text" class="check003" id="input001" size="15" style="height: 24px;width: 24px;" />
-                                                    <pre>></pre>
+                                               <pre > 
+                                                    <pre><</pre>body<pre>></pre>
+                                               
                                                     
-                                              </div>
+
+                                                     </pre>
+                               
+                                                     
+                                               
+                                               </div>
                                           
-                                              <div class="coding-2">
-                                                      <pre><</pre> 
-                                                      <input required pattern="" type="text" class="check003" id="input002" size="15" style="height: 24px;width: 24px;" />
-                                                       <pre>></pre>
-                                                   
-                                                   <pre id="before">I am a sub Heading 
-                                                         </pre>
-                                                         <pre><</pre><pre>/</pre> 
-                                                         <input required pattern="" type="text" class="check003" id="input002" size="15" style="height: 24px;width: 24px;" />
-                                                         <pre>></pre>
-                                                         
-                                                   </div>
-                                                   <div class="coding-3">
-                                                          <pre><</pre> 
-                                                          <input required pattern="" type="text" class="check003" id="input003" size="15" style="height: 24px;width: 24px;" />
-                                                           <pre>></pre>
+                                               <div class="coding-12" >
+                                               
+                                               <pre> <pre><</pre>img src="img_red_rose.jpg"  
+                                               <input  name="answer_1" type="text" class="check002" id="input001" size="15" style="height: 24px;width: 92px;" required />="red rose"<text class="button002" id="check001"></text>
+                                               <pre>></pre>
+                                                     </pre>
+                               
+                                                     
+                                               
+                                               </div>
+                                               
+                                                 
+                                                     
+                                                          <div class="coding-1">
+                                               
+                                                              
+                                                                  <pre><</pre><pre>/</pre>body<pre>></pre>                                       
+               
+                                                                   
+                                                                   
+                                                                    
+                                                              
+                                                              </div>
+                                            
+                                                
+                                                       <div id="disappear001"><div id="center001"><button class="button001" onclick="submit001()">Submit</button></div></div><br />
                                                        
-                                                       <pre id="before">I am a sub sub Heading 
-                                                             </pre>
-                                       
-                                                             <pre><</pre><pre>/</pre>
-                                                             <input required pattern="" type="text" class="check003" id="input003" size="15" style="height: 24px;width: 24px;" />
-                                                              <pre>></pre>
-                                                             
+                                                       @if (session()->has('message_wrong'))
+                                                       <div style="    max-width:  270px; color: white; background-color: #741f1e;"  class="alert alert-info">
+                                                            {{ session('message_wrong') }} {{(Auth::user()->name)}}
                                                        </div>
-                                                       <div id="disappear001"><div id="center001">
-                                                         <button type="submit" class="button001" onclick="submit001()">Submit</button>
-                                                        </div></div><br />
-                                                       <div id="center001"><p id="message001"></p><p id="reload001"></p></div>   
-                                          </form>
+                                                       @endif
+                                                      @if (session()->has('message_true'))
+                                                       <div style="    max-width: 270px; color: white; background-color: #21b045;"   class="alert alert-info">
+                                                            {{ session('message_true') }} {{(Auth::user()->name)}}
+                                                        </div>
+                                                            @endif
+                                                           
+
+                                                    </form> 
+                                                   
+
                                       </div> 
                                   </div>
                               </div>
@@ -80,11 +92,12 @@
               </div>
               
 
-              <div id="SpeechBubble">Lets Start {{(Auth::user()->name)}} </div>
-              
+              <div id="SpeechBubble">Im happ you are here{{(Auth::user()->name)}} </div>
+              <div id="SpeechBubble2">You are now at Level 1 {{(Auth::user()->name)}} ;) </div>
+
            
 
-                                <div class="quiz" style="text-align: justify;">
+                                <div id="quiz" class="quiz" style="text-align: justify;">
                                     
                                     <div class="dropdown">
                           <button style="background-color:#7a7aa5" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -101,11 +114,11 @@
                         
                                   <div id="quiztext">
                                     <p id="level-1">
-                                      @foreach($levels as $level )
-                                    <h3>{{$level->title}}</h3>
-                                        {{ $level->text }}
-                                        
-                                    @endforeach
+                                        @foreach($levels as $level )
+                                        <h3>{{$level->title}}</h3>
+                                            {{ $level->text }}
+                                            
+                                        @endforeach
                                     </p>
                                   </div>
                                 </div>
@@ -114,8 +127,7 @@
        
 </div>
 
-
-
+@include('partials.footer')
   <script type="text/javascript" src="{{URL::asset('js/bodymovin.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/head.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
@@ -127,9 +139,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
 <script type="text/javascript" src="{{URL::asset('js/speak.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/loading.js')}}"></script>
 
 
-@include('partials.footer')
 
       </body>
 </html>

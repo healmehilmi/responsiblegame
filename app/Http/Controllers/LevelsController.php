@@ -12,6 +12,14 @@ class LevelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+  
+    public function start()
+    {
+       
+        return view('start');
+       
+    }
     public function game()
     {
         $levels = Levels::all()->where('id',1);

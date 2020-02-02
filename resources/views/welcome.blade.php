@@ -11,31 +11,55 @@
 
         <!-- Styles -->
         <link href="css/master.css" rel="stylesheet">
+        <link href="css/load.css" rel="stylesheet">
+
         
 
     </head>
-    <body onload="myFunction()">
-        <div id="loading"></div>
+    <body>
+            <div class="preloader">
+                    <img class="loader_logo" src="{{URL::asset('/images/respo_logo.png')}}" alt="logo" >
+            </div>
+
          
     @include('partials.navbar')
 
 
            
 
-            <div class="main" >
+            <div class="main" style="height: 767px;" >
                <div class="content">
-               <div style="" id="bm"> 
-            </div>
+                
+                <div style="position:relative;" class="interactifmenu">
+                    <img style="height:400px;" class="navi_logo" src="{{URL::asset('/images/respoo.png')}}"  alt="logo" >
 
-<audio id="sound1" src="{{URL::asset('/music/music_zapsplat_on_the_job_140.mp3')}} " preload="auto"></audio>
+                <a href="{{ route('respobook') }}">   <img style="height: 125px;
+                    position: absolute;
+                    top: 108px;
+                    left: 153px;
+                    z-index: 30;" class="navi_logo2" src="{{URL::asset('/images/book.png')}}"  alt="logo2" ></a> 
+                  
+                  
+                 <a href="{{ route('start') }}">  <img style="height: 219px;
+                    position: absolute;
+                    top: 135px;
+                    left: 403px;
+                    z-index: 30;" class="navi_logo3" src="{{URL::asset('/images/plazit.png')}}"  alt="logo3" ></a> 
+
+
+
+
+                </div>
+                    
+
   
                     @if (Route::has('login'))
                     <div id="play-button">
                             @auth  
-                        <a href="{{ url('/game') }}" onclick="document.getElementById('sound1').play();"><img class="play-img" src="{{URL::asset('/images/play.png')}}" alt="play" ></a>
+                        <a href="{{ url('/start') }}" onclick="document.getElementById('sound1').play();"><img class="play-img" src="{{URL::asset('/images/play.png')}}" alt="play" ></a>
 
                        
-                        <a href="{{ url('/game') }}"><p class="game">&lt;a href="#"&gt;Go to game&lt;/a&gt;</p></a>
+                        <a href="{{ url('/start') }}"><p class="game">&lt;a href="#"&gt;Go to game&lt;/a&gt;</p></a>
                     
                         @else
                         <a href="{{ url('login') }}" onclick="document.getElementById('sound1').play();"><img class="play-img" src="{{URL::asset('/images/play.png')}}" alt="play" ></a>
@@ -52,16 +76,15 @@
 
                     @endif
                 </div>
+                              <div class="main-text" style="margin-top:5%;">
+                                 <h1>&lt;h1&gt; <span class="respo">Respo</span>nsiblegame is an easy way to learn web accessiblity&lt;/h1&gt; </h1>
 
-                 <h1>&lt;h1&gt; <span class="respo">Respo</span>nsiblegame is an easy way to learn web accessiblity&lt;/h1&gt; </h1>
-
-                                  <h2>&lt;h2&gt; What is <a class="web" href="http://">web accessiblity</a>?&lt;/h2&gt; </h2>
-
+                                </div>
                 </div>
 
                
             <div class="web-text">
-            <h2>&lt;h2&gt; What is <a class="web" href="http://">web accessiblity</a>?&lt;/h2&gt; </h2>
+            <h2>&lt;h2&gt; What is web accessiblity ?&lt;/h2&gt; </h2>
 
 
               <p class="web-p">&lt;p&gt;  Web accessibility means that websites, tools, and technologies are designed and developed so that people with disabilities can use them. More specifically, people can:
@@ -96,7 +119,7 @@
                 
                 <div class="links">
 
-                   
+                   <div class="links_box">
 
                          <h3>&lt;h3&gt; Do you want to learn more about  web accessiblity ?&lt;/h3&gt; </h3>
 
@@ -110,7 +133,7 @@
 
 
 <p> &lt;/p&gt; </p>
-
+</div>
 
 
                 </div>
@@ -119,13 +142,15 @@
 
 
 @include('partials.footer')
-                  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="{{URL::asset('js/loading.js')}}"></script>
 
                     <script type="text/javascript" src="{{URL::asset('js/bodymovin.js')}}"></script>
          <script type="text/javascript" src="{{URL::asset('js/script.js')}}"></script>
 
          <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
-         <script type="text/javascript" src="{{URL::asset('js/loading.js')}}"></script>
+         
 
     </body>
 </html>

@@ -13,7 +13,7 @@
             <li><a href="https://codepen.io/hilmi-naz" target="_blank">Codepen</a></li>
             <li><a href="https://github.com/healmehilmi" target="_blank">GitHub</a></li>
 
-            <li><a href="http://">Twitter</a></li>
+            
 
 
         </ul>

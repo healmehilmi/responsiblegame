@@ -16,12 +16,22 @@
         @include('partials.navbar')
         
 
-        <div>
-            <h3>About us</h3>
-            <p>alkdsaljsdlkajldkjaljdslasda;sdjajs;dkj;as;
-                alkmd;ask;d
-            </p>
-        </div>
+        <div class="container" style="margin-top: 101px;">
+                <div class="row">
+                <div class="col-12 offset-0 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <article>
+                <div class="card" style="background-color:#cc4346;">
+                <div class="card-body" style="padding: 2rem 6rem;">
+                <h2 class="entry-title">About Responsiblegame</h2><p class="mt-5">We make games that help people learn to code.</p>
+                <p>Games and learning don’t have to be an either/or proposition. We believe that games can be one of the most effective ways to learn. If designed well, they provide a fun but challenging path to mastery.</p>
+                <p>The popularity of our  game, demonstrated a hunger for these kind of games in the web dev community.</p>
+                
+                
+                </div>
+                </div></article>
+                </div>
+                </div>
+                </div>
 
 
         

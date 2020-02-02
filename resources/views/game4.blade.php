@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link href="css/game.css" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
 
 </head>
-<body>
+<body onload="myFunction()">
+        <div id="loading"></div>
 @include('partials.navbar')
 
 <div class="main">
@@ -21,6 +24,8 @@
          
                                 <div id="editor">
                                       <div id="css">
+                                            <form id="exam_form" method="POST" action="/check4" class="form-horizontal" >
+                                                @csrf
                                           
                                            <div class="line-numbers">
                                                1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
@@ -29,7 +34,7 @@
                                           
                                                <div class="coding-1">
                                                
-                                               <pre id="before"<pre><</pre>nav <input type="text" class="check003" id="input006" size="15" style="height: 24px;width: 50px;" /><text class="button002" id="check001"></text>
+                                               <pre<pre><</pre>nav <input name="answer_4" type="text" class="check003" id="input006" size="15" style="height: 24px;width: 50px;"required /><text class="button002" id="check001"></text>
                                                ="navigation"<pre>></pre>
                                                      </pre>
                                
@@ -38,7 +43,7 @@
                                                </div>
                                                <div class="coding-1">
                                                
-                                                  <pre id="before"> 
+                                                  <pre> 
                                                       <pre><</pre>ul<pre>></pre>      
                                                                                               
    
@@ -49,7 +54,7 @@
                                                   </div>
                                                   <div class="coding-1">
                                                
-                                                      <pre id="before"> 
+                                                      <pre> 
                                                         <pre><</pre>li<pre>></pre>     
                                                                                                   
        
@@ -61,7 +66,7 @@
                                                       <p>Put navigation here</p>
                                                       <div class="coding-1">
                                                
-                                                          <pre id="before"> 
+                                                          <pre> 
                                                                 
                                                               <pre><</pre><pre>/</pre>li<pre>></pre>                                       
            
@@ -72,7 +77,7 @@
                                                           </div>
                                                           <div class="coding-1">
                                                
-                                                              <pre id="before"> 
+                                                              <pre> 
                                                                     
                                                                   <pre><</pre><pre>/</pre>ul<pre>></pre>                                       
                
@@ -83,7 +88,7 @@
                                                               </div>
                                                               <div class="coding-1">
                                                
-                                                                <pre id="before"> 
+                                                                <pre> 
                                                                       
                                                                     <pre><</pre><pre>/</pre>nav<pre>></pre>                                       
                  
@@ -95,7 +100,17 @@
                                             
                                                 
                                                        <div id="disappear001"><div id="center001"><button class="button001" onclick="submit001()">Submit</button></div></div><br />
-                                                       <div id="center001"><p id="message001"></p><p id="reload001"></p></div>   
+ 
+                                                       @if (session()->has('message_wrong'))
+                                                       <div style="    max-width:  270px; color: white; background-color: #741f1e;"  class="alert alert-info">
+                                                            {{ session('message_wrong') }} {{(Auth::user()->name)}}
+                                                       </div>
+                                                       @endif
+                                                      @if (session()->has('message_true'))
+                                                       <div style="    max-width:  270px; color: white; background-color: #21b045;"   class="alert alert-info">
+                                                            {{ session('message_true') }} {{(Auth::user()->name)}}
+                                                        </div>
+                                                            @endif                                            </form> 
                                       </div> 
                                   </div>
                               </div>
@@ -139,13 +154,12 @@
        
        
 </div>
-
+@include('partials.footer')
 
   <script type="text/javascript" src="{{URL::asset('js/bodymovin.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/head.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
 
-        <script type="text/javascript" src="{{URL::asset('js/game1.js')}}"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -153,8 +167,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
 <script type="text/javascript" src="{{URL::asset('js/speak.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/loading.js')}}"></script>
 
-@include('partials.footer')
+
+
 
       </body>
 </html>
