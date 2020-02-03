@@ -7,14 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Responsible game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    
     <link href="css/game.css" rel="stylesheet">
+    <link href="css/load.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
+   
+
+
+
 </head>
-<body onload="myFunction()">
-        <div id="loading"></div>
+<body>
+        <div class="preloader">
+                <img class="loader_logo" src="{{URL::asset('/images/respo_logo.png')}}" alt="logo" >
+        </div>
+       
 @include('partials.navbar')
 
 <div class="main">
@@ -129,18 +137,20 @@
 </div>
 
 @include('partials.footer')
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="{{URL::asset('js/loading.js')}}"></script>
+
   <script type="text/javascript" src="{{URL::asset('js/bodymovin.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/head.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
 <script type="text/javascript" src="{{URL::asset('js/speak.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('js/loading.js')}}"></script>
 
 
 

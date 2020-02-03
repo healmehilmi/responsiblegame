@@ -10,9 +10,17 @@
         
             <link href="css/game.css" rel="stylesheet">
         
-        
+            <link href="css/load.css" rel="stylesheet">
+
+
+
         </head>
-<body>
+        <body>
+                <div class="preloader">
+                        <img class="loader_logo" src="{{URL::asset('/images/respo_logo.png')}}" alt="logo" >
+                </div>
+
+
         @include('partials.navbar')
         
 
@@ -108,7 +116,8 @@
 
         
         @include('partials.footer')
-        
+        <script type="text/javascript" src="{{URL::asset('js/loading.js')}}"></script>
+
               </body>
 
 </html>
