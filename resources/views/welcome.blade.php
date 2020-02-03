@@ -39,16 +39,22 @@
                     left: 153px;
                     z-index: 30;" class="navi_logo2" src="{{URL::asset('/images/book.png')}}"  alt="logo2" ></a> 
                   
-                  
+                    @if (Route::has('login'))
+                    @auth 
                  <a href="{{ route('start') }}">  <img style="height: 219px;
                     position: absolute;
                     top: 135px;
                     left: 403px;
                     z-index: 30;" class="navi_logo3" src="{{URL::asset('/images/plazit.png')}}"  alt="logo3" ></a> 
 
-
-
-
+                    @else
+                    <a href="{{ route('login') }}">  <img style="height: 219px;
+                        position: absolute;
+                        top: 135px;
+                        left: 403px;
+                        z-index: 30;" class="navi_logo3" src="{{URL::asset('/images/plazit.png')}}"  alt="logo3" ></a>
+                        @endauth
+                        @endif
                 </div>
                     
 
@@ -56,13 +62,13 @@
                     @if (Route::has('login'))
                     <div id="play-button">
                             @auth  
-                        <a href="{{ url('/start') }}" onclick="document.getElementById('sound1').play();"><img class="play-img" src="{{URL::asset('/images/play.png')}}" alt="play" ></a>
+                        <a href="{{ url('/start') }}""><img class="play-img" src="{{URL::asset('/images/play.png')}}" alt="play" ></a>
 
                        
                         <a href="{{ url('/start') }}"><p class="game">&lt;a href="#"&gt;Go to game&lt;/a&gt;</p></a>
                     
                         @else
-                        <a href="{{ url('login') }}" onclick="document.getElementById('sound1').play();"><img class="play-img" src="{{URL::asset('/images/play.png')}}" alt="play" ></a>
+                        <a href="{{ url('login') }}" ><img class="play-img" src="{{URL::asset('/images/play.png')}}" alt="play" ></a>
 
                        
                         <a href="{{ url('login') }}"><p class="game">&lt;a href="#"&gt;Go to game&lt;/a&gt;</p></a>

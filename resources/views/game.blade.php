@@ -30,7 +30,7 @@
                                               </div>
                                               <div class="coding-1">
                                                
-                                               <pre > 
+                                               <pre id="before"> 
                                                     <pre><</pre>body<pre>></pre>
                                                
                                                     
@@ -43,7 +43,7 @@
                                           
                                                <div class="coding-12" >
                                                
-                                               <pre> <pre><</pre>img src="img_red_rose.jpg"  
+                                               <pre id="before"<pre><</pre>img src="img_red_rose.jpg"  
                                                <input  name="answer_1" type="text" class="check002" id="input001" size="15" style="height: 24px;width: 92px;" required />="red rose"<text class="button002" id="check001"></text>
                                                <pre>></pre>
                                                      </pre>
@@ -56,10 +56,11 @@
                                                      
                                                           <div class="coding-1">
                                                
-                                                              
+                                                              <pre id="before"> 
+                                                                    
                                                                   <pre><</pre><pre>/</pre>body<pre>></pre>                                       
                
-                                                                   
+                                                                    </pre>
                                                                    
                                                                     
                                                               
